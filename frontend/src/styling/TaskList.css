@@ -1,0 +1,41 @@
+.task-container {
+    padding: 20px;
+    text-align: center;
+}
+  
+.task-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.task-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-container .add-btn{
+    background-color: #343aeb; 
+    color: white;
+    border: 1px solid white; 
+    border-radius: 4px; 
+    padding: 8px; 
+    margin: 8px 4px;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+  

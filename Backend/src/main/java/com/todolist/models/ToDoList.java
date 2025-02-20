@@ -1,15 +1,21 @@
 package com.todolist.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import org.springframework.data.annotation.Id;
+
+@Document(collection = "Tasks")
 public class ToDoList {
-    private int id;
+    @Id
+    private String id;
     private boolean taskcompleted;
     private String taskToBeDone;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

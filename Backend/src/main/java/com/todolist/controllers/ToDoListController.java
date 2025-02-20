@@ -8,9 +8,9 @@ import java.util.List;
 import com.todolist.models.ToDoList;
 import com.todolist.services.ToDOListService;
 
-
-@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/todolist")
+@RestController
 public class ToDoListController {
     @Autowired
     private ToDOListService toDoListService;
@@ -22,7 +22,7 @@ public class ToDoListController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ToDoList> getTodoById(@PathVariable int id) {
+    public ResponseEntity<ToDoList> getTodoById(@PathVariable String id) {
         return toDoListService.getToDoListById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -35,14 +35,14 @@ public class ToDoListController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ToDoList> updateTodo(@PathVariable int id, @RequestBody ToDoList updatedTask) {
+    public ResponseEntity<ToDoList> updateTodo(@PathVariable String id, @RequestBody ToDoList updatedTask) {
         return toDoListService.updateToDoList(id, updatedTask)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable int id) {
+    public ResponseEntity<Void> deleteTodo(@PathVariable String id) {
         if (toDoListService.deleteToDoList(id)) {
             return ResponseEntity.noContent().build();
         }
